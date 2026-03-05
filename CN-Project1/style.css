@@ -1,0 +1,12 @@
+:root { font-family: system-ui, Arial, sans-serif; }
+body { margin: 0; background: #0b0f14; color: #e9eef5; }
+.container { max-width: 900px; margin: 0 auto; padding: 18px; }
+.muted { color: #b7c0cc; }
+.nav { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+.nav a { color: #e9eef5; text-decoration: none; padding: 8px 10px; border-radius: 10px; border: 1px solid #243043; }
+.nav a.active { background: #162133; }
+.card { background: #111822; border: 1px solid #243043; border-radius: 16px; padding: 18px; }
+.callout { margin-top: 18px; padding: 12px; border-radius: 14px; background: #0f1a2a; border: 1px solid #2a3a55; }
+code { background: #0f1a2a; padding: 2px 6px; border-radius: 8px; }
+h1, h2 { margin: 10px 0; }
+section { margin: 18px 0; }

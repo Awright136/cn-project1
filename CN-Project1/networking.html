@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Networking Concepts - CN Project 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Networking Concepts & Evidence</h1>
+    <p class="muted">DNS • IPv4/IPv6 • HTTP vs HTTPS • Security</p>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="networking.html" class="active">Networking Concepts</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container card">
+    <section>
+      <h2>1) DNS (Domain Name System)</h2>
+      <p>
+        DNS translates a human-friendly domain name into IP addresses that computers use to route traffic.
+      </p>
+      <h3>Evidence</h3>
+      <ul>
+        <li>Command: <code>nslookup your-domain</code></li>
+        <li>Screenshot: show the domain queried + returned IP addresses</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2) IP Addressing (IPv4 vs IPv6)</h2>
+      <p>
+        IPv4 uses 32-bit addresses (A records). IPv6 uses 128-bit addresses (AAAA records).
+      </p>
+      <h3>Evidence</h3>
+      <ul>
+        <li>IPv4 (A record): <code>nslookup -type=A your-domain</code></li>
+        <li>IPv6 (AAAA record): <code>nslookup -type=AAAA your-domain</code></li>
+        <li>Screenshots: outputs for both commands</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3) Protocols (HTTP vs HTTPS)</h2>
+      <p>
+        HTTP sends traffic in plaintext. HTTPS encrypts traffic using TLS, protecting confidentiality and integrity.
+      </p>
+      <h3>Evidence</h3>
+      <ul>
+        <li>HTTP headers: <code>curl.exe -I http://your-domain</code></li>
+        <li>HTTPS headers: <code>curl.exe -I https://your-domain</code></li>
+        <li>Screenshot: show status codes (200/301/302) and key headers</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4) Security Feature Implemented</h2>
+      <p>
+        Security feature: <strong>HTTPS</strong> (encrypted connections). GitHub Pages supports HTTPS.
+        We verify HTTPS and (ideally) an HTTP → HTTPS redirect using header output.
+      </p>
+      <h3>Evidence</h3>
+      <ul>
+        <li>Screenshot: <code>curl.exe -I https://your-domain</code> output</li>
+        <li>Screenshot: <code>curl.exe -I http://your-domain</code> output (shows redirect if present)</li>
+      </ul>
+    </section>
+
+    <section class="callout">
+      <strong>Note:</strong> Add your screenshots to the PDF report (and optionally embed them here too).
+    </section>
+  </main>
+
+  <footer class="container muted">
+    © 2026 • CN Project 1
+  </footer>
+</body>
+</html>
