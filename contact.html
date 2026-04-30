@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-Content-Type-Options"  content="nosniff" />
+  <meta http-equiv="X-Frame-Options"         content="DENY" />
+  <meta http-equiv="Referrer-Policy"         content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';" />
+
+  <title>Contact — CN Project 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <span class="site-logo">CN<span class="accent">▸</span>P2</span>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="networking.html">Networking</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">Security Feature Demo</p>
+      <h1 class="page-title">Contact</h1>
+      <p class="page-sub">This form demonstrates XSS sanitization, input validation, and honeypot bot protection — all required Project 2 security features.</p>
+    </div>
+  </div>
+
+  <main class="container main-content narrow">
+
+    <!-- Security annotation banner -->
+    <div class="security-banner reveal">
+      <h3>🛡️ Security Features Active on This Form</h3>
+      <div class="security-features-inline">
+        <span>✓ XSS input sanitization</span>
+        <span>✓ Client-side validation</span>
+        <span>✓ Honeypot bot trap (hidden field)</span>
+        <span>✓ Rate limiting (client-side)</span>
+        <span>✓ HTTPS encrypted in transit</span>
+      </div>
+    </div>
+
+    <!-- Status message -->
+    <div id="form-status" class="form-status" role="alert" aria-live="polite" hidden></div>
+
+    <form id="contact-form" class="contact-form reveal" novalidate>
+
+      <!-- HONEYPOT — invisible to real users, filled by bots -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Website (do not fill)</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name <span class="required">*</span></label>
+        <input type="text" id="name" name="name"
+          autocomplete="name" required
+          maxlength="100" placeholder="Your name" />
+        <span class="field-error" id="name-error" role="alert"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email"
+          autocomplete="email" required
+          maxlength="254" placeholder="you@example.com" />
+        <span class="field-error" id="email-error" role="alert"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject"
+          maxlength="150" placeholder="What's this about?" />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message <span class="required">*</span></label>
+        <textarea id="message" name="message"
+          required minlength="10" maxlength="2000"
+          placeholder="Your message…"></textarea>
+        <span class="field-error" id="message-error" role="alert"></span>
+        <span class="char-count" id="char-count">0 / 2000</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+        <span class="btn-text">Send Message</span>
+        <span class="btn-loading" hidden>Sending…</span>
+      </button>
+
+      <p class="form-note">
+        Note: Since this is a static GitHub Pages site, the form simulates submission locally (no backend). In a production deployment with a Node.js/Express backend, the message would be stored in a database using parameterized queries (SQL injection prevention).
+      </p>
+    </form>
+
+    <!-- Security annotation box -->
+    <div class="annotation-box reveal">
+      <h3>How the Security Works</h3>
+      <div class="annotation-item">
+        <code>Honeypot field</code>
+        <p>A hidden text input (<code>name="website"</code>) is placed off-screen using CSS (<code>position: absolute; left: -9999px</code>). Real users never see or fill it. Bots that auto-fill all fields trigger it — the form is silently rejected without alerting the bot.</p>
+      </div>
+      <div class="annotation-item">
+        <code>XSS Sanitization</code>
+        <p>Before any input is processed, all <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, and <code>"</code> characters are escaped to their HTML entity equivalents. This prevents injected HTML/JavaScript from executing in the browser.</p>
+      </div>
+      <div class="annotation-item">
+        <code>Client-side Rate Limit</code>
+        <p>A timestamp check prevents re-submission within 10 seconds, discouraging spam bursts from the same session. A real backend would enforce this server-side with <code>express-rate-limit</code>.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© 2026 Andre Wright · CN Project 2 · Computer Science Department</p>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="networking.html">Networking</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

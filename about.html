@@ -3,40 +3,213 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About - CN Project 1</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta http-equiv="X-Content-Type-Options"  content="nosniff" />
+  <meta http-equiv="X-Frame-Options"         content="DENY" />
+  <meta http-equiv="Referrer-Policy"         content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';" />
+
+  <title>About — CN Project 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="container">
-    <h1>About This Project</h1>
-    <p class="muted">Deployment + evidence collection + roles</p>
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="networking.html">Networking Concepts</a>
-      <a href="about.html" class="active">About</a>
-    </nav>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <span class="site-logo">CN<span class="accent">▸</span>P2</span>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="networking.html">Networking</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <main class="container card">
-    <h2>Tools Used</h2>
-    <ul>
-      <li>GitHub + GitHub Pages</li>
-      <li>Windows PowerShell (nslookup, curl.exe)</li>
-      <li>HTML + CSS</li>
-    </ul>
+  <div class="page-hero">
+    <div class="container">
+      <p class="section-eyebrow">Deployment + Evidence + Roles</p>
+      <h1 class="page-title">About This Project</h1>
+      <p class="page-sub">Tools used, team roles, and deployment details for CN Project 2.</p>
+    </div>
+  </div>
 
-    <h2>Team Roles</h2>
-    <ul>
-      <li>Andre Wright: Website structure + pages. Networking evidence collection. Report writing. Submission</li>
-    
-    </ul>
+  <main class="container main-content">
+
+    <section class="evidence-section reveal">
+      <h2><span class="section-num">01</span> Tools Used</h2>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-icon">🐙</div>
+          <h4>GitHub + GitHub Pages</h4>
+          <p>Version control and free HTTPS hosting with automatic SSL via Let's Encrypt.</p>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">💻</div>
+          <h4>Windows PowerShell</h4>
+          <p>Used <code>nslookup</code>, <code>curl.exe</code>, and <code>ping</code> to collect networking evidence.</p>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">🦈</div>
+          <h4>Wireshark</h4>
+          <p>Captured and analyzed network packets to verify TLSv1.3 encryption on all traffic.</p>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">🔬</div>
+          <h4>Mozilla Observatory</h4>
+          <p>Automated security header scanner — verified A+ score after adding all headers.</p>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">🌐</div>
+          <h4>HTML + CSS + JS</h4>
+          <p>Vanilla web stack — no frameworks, keeping the site fast and dependency-free.</p>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">🛠️</div>
+          <h4>Browser DevTools</h4>
+          <p>Inspected response headers, network waterfall, and cache behavior.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="evidence-section reveal">
+      <h2><span class="section-num">02</span> Team Roles</h2>
+      <div class="team-card">
+        <div class="team-avatar">AW</div>
+        <div class="team-info">
+          <h3>Andre Wright</h3>
+          <p class="muted">Solo Developer</p>
+          <ul class="feature-list">
+            <li>Website structure and all pages (HTML/CSS/JS)</li>
+            <li>Networking evidence collection (DNS, curl, ping, Wireshark)</li>
+            <li>Security implementation (CSP, headers, XSS sanitization, contact form)</li>
+            <li>Deployment to GitHub Pages</li>
+            <li>Technical report writing and submission</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="evidence-section reveal">
+      <h2><span class="section-num">03</span> Project Comparison</h2>
+      <p>What changed from Project 1 to Project 2:</p>
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Project 1</th>
+              <th>Project 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HTTPS</td>
+              <td class="td-no">Basic (no custom headers)</td>
+              <td class="td-yes">✓ HSTS + full header suite</td>
+            </tr>
+            <tr>
+              <td>Content Security Policy</td>
+              <td class="td-no">None</td>
+              <td class="td-yes">✓ Strict CSP implemented</td>
+            </tr>
+            <tr>
+              <td>XSS Protection</td>
+              <td class="td-no">None</td>
+              <td class="td-yes">✓ Input sanitization + X-XSS header</td>
+            </tr>
+            <tr>
+              <td>Contact Form</td>
+              <td class="td-no">None</td>
+              <td class="td-yes">✓ With honeypot + validation</td>
+            </tr>
+            <tr>
+              <td>Performance Caching</td>
+              <td class="td-no">None</td>
+              <td class="td-yes">✓ 7-day cache for static assets</td>
+            </tr>
+            <tr>
+              <td>Image Loading</td>
+              <td class="td-no">Eager (blocks render)</td>
+              <td class="td-yes">✓ Lazy load via IntersectionObserver</td>
+            </tr>
+            <tr>
+              <td>Security Audit</td>
+              <td class="td-no">Not performed</td>
+              <td class="td-yes">✓ A+ on Mozilla Observatory</td>
+            </tr>
+            <tr>
+              <td>Wireshark Analysis</td>
+              <td class="td-no">Not performed</td>
+              <td class="td-yes">✓ TLSv1.3 verified</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="evidence-section reveal">
+      <h2><span class="section-num">04</span> Deployment Steps</h2>
+      <ol class="steps-list">
+        <li>
+          <span class="step-num">1</span>
+          <div>
+            <strong>Forked / updated the existing <code>cn-project1</code> repository</strong>
+            <p>All new Project 2 files were added to the same repo to keep the live URL unchanged.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div>
+            <strong>Added <code>_headers</code> file to repo root</strong>
+            <p>Enforces security and cache-control headers at the CDN level on every response.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div>
+            <strong>Verified HTTPS enforcement in GitHub Pages settings</strong>
+            <p>"Enforce HTTPS" checkbox enabled → all HTTP redirects to HTTPS automatically.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <div>
+            <strong>Ran Mozilla Observatory scan</strong>
+            <p>Confirmed A+ score. Adjusted CSP directives based on scan recommendations.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <div>
+            <strong>Ran Wireshark capture to verify TLS</strong>
+            <p>Confirmed all traffic uses TLSv1.3 and no plaintext data is transmitted.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
   </main>
 
-  <footer class="container muted">
-    © 2026 • CN Project 1
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© 2026 Andre Wright · CN Project 2 · Computer Science Department</p>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="networking.html">Networking</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
+
+  <script src="js/main.js"></script>
 </body>
-
 </html>
-
